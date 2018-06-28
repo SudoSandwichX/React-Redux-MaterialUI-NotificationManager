@@ -2,10 +2,7 @@ import React from "react";
 import { AddAlert } from "@material-ui/icons";
 import Snackbar from "./Snackbar.jsx";
 import { connect } from "react-redux";
-import {
-  addNotification,
-  removeNotification
-} from "../Redux/notificationActions";
+import { addNotification, removeNotification } from "../Redux";
 // this will store the notifications and their count to track them and also maxNotifications for use in internal functions
 
 class Notification extends React.Component {

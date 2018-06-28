@@ -1,7 +1,4 @@
-import {
-  addNotification,
-  removeNotification
-} from "../Actions/notificationActions";
+import { addNotification, removeNotification } from "../Redux";
 import React from "react";
 import { connect } from "react-redux";
 import { Button, TextField } from "@material-ui/core";
