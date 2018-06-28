@@ -21,7 +21,7 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <React.Fragment>
       <div className="App">
-        <h1>Notification Demo</h1>
+        <h1>Notification Demo (WIP)</h1>
         <p> Expand and contract window to see how notification responds</p>
         <Demo />
       </div>
