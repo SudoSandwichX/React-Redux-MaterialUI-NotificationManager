@@ -4,7 +4,7 @@ import Demo from "./Demo.jsx";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-import rootReducer from "../Reducers";
+import rootReducer from "../Redux";
 import "./styles.css";
 
 const initialState = {};
@@ -22,9 +22,9 @@ const Root = ({ store }) => (
     <React.Fragment>
       <div className="App">
         <h1>Notification Demo</h1>
-        <h2>Start editing to see some magic happen!</h2>
+        <p> Expand and contract window to see how notification responds</p>
+        <Demo />
       </div>
-      <Demo />
     </React.Fragment>
   </Provider>
 );

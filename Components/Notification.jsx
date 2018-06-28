@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import {
   addNotification,
   removeNotification
-} from "../Actions/notificationActions";
+} from "../Redux/notificationActions";
 // this will store the notifications and their count to track them and also maxNotifications for use in internal functions
 
 class Notification extends React.Component {
