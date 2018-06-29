@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { addNotification, removeNotification } from "../Redux";
 // this will store the notifications and their count to track them and also maxNotifications for use in internal functions
 
-class Notification extends React.Component {
+class NotificationManager extends React.Component {
   constructor(props) {
     super(props);
     this.closeNotification = this.closeNotification.bind(this);
@@ -23,25 +23,21 @@ class Notification extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.notifications.length > 0 && (
-          <Snackbar
-            id={
-              this.props.notifications[this.props.notifications.length - 1].id
-            }
-            place="br"
-            color="info"
-            icon={AddAlert}
-            message={
-              this.props.notifications[this.props.notifications.length - 1]
-                .message
-            }
-            open={
-              this.props.notifications[this.props.notifications.length - 1].open
-            }
-            closeNotification={this.closeNotification}
-            close
-          />
-        )}
+        {this.props.notifications.length > 0 &&
+          this.props.notifications.map(notification => {
+            return (
+              <Snackbar
+                id={notification.id}
+                place="br"
+                color="info"
+                icon={AddAlert}
+                message={notification.message}
+                open={notification.open}
+                closeNotification={this.closeNotification}
+                close
+              />
+            );
+          })}
       </React.Fragment>
     );
   }
@@ -56,4 +52,4 @@ const mapActionsToProps = {
   onRemoveNotification: removeNotification
 };
 
-export default connect(mapStateToProps, mapActionsToProps)(Notification);
+export default connect(mapStateToProps, mapActionsToProps)(NotificationManager);
