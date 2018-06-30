@@ -4,7 +4,7 @@ import { Close } from "@material-ui/icons";
 import PropTypes from "prop-types";
 import cx from "classnames";
 
-import snackbarContentStyle from "../Assets/jss/snackbarContentStyle.jsx";
+import notificationContentStyle from "../Assets/jss/notificationContentStyle.jsx";
 
 class Notification extends React.Component {
   closeSnackbar() {
@@ -61,6 +61,7 @@ class Notification extends React.Component {
           </div>
         }
         action={action}
+        classes={{ root: classes.overridePositionFix }}
         ContentProps={{
           classes: {
             root: classes.root + " " + classes[color],
@@ -83,4 +84,4 @@ Notification.propTypes = {
   closeNotification: PropTypes.func
 };
 
-export default withStyles(snackbarContentStyle)(Notification);
+export default withStyles(notificationContentStyle)(Notification);
