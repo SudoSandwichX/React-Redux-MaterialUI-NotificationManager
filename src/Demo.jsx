@@ -47,13 +47,11 @@ class Demo extends React.Component {
   };
 
   handleChange = name => event => {
-    console.log(name + " " + event.target.value);
     this.setState({
       [name]: event.target.value
     });
   };
   showNotification = notification => {
-    console.log(notification.icon);
     this.props.onAddNotification({
       id: Date.now(),
       message: notification.message,

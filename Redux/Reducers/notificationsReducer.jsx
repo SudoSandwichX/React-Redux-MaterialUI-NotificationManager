@@ -29,7 +29,9 @@ export default function notificationsReducer(
           {
             id: payload.notification.id,
             message: payload.notification.message,
-            open: payload.notification.open
+            open: payload.notification.open,
+            color: payload.notification.color,
+            icon: payload.notification.icon
           }
         ]
       });
