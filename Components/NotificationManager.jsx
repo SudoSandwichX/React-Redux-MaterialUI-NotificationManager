@@ -1,8 +1,8 @@
 import React from "react";
-import { AddAlert } from "@material-ui/icons";
-import Snackbar from "./Snackbar.jsx";
+import Notification from "./Notification.jsx";
 import { connect } from "react-redux";
 import { addNotification, removeNotification } from "../Redux";
+import { List } from "@material-ui/core";
 // this will store the notifications and their count to track them and also maxNotifications for use in internal functions
 
 class NotificationManager extends React.Component {
@@ -23,21 +23,31 @@ class NotificationManager extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.notifications.length > 0 &&
-          this.props.notifications.map(notification => {
-            return (
-              <Snackbar
-                id={notification.id}
-                place="br"
-                color="info"
-                icon={AddAlert}
-                message={notification.message}
-                open={notification.open}
-                closeNotification={this.closeNotification}
-                close
-              />
-            );
-          })}
+        {this.props.notifications.length > 0 && (
+          <div
+            style={{
+              position: "fixed",
+              bottom: 0,
+              right: 15,
+              justifyContent: "flex-end"
+            }}
+          >
+            {this.props.notifications.map(notification => {
+              return (
+                <Notification
+                  id={notification.id}
+                  place="br"
+                  color={notification.color}
+                  icon={notification.icon}
+                  message={notification.message}
+                  open={notification.open}
+                  closeNotification={this.closeNotification}
+                  close
+                />
+              );
+            })}
+          </div>
+        )}
       </React.Fragment>
     );
   }

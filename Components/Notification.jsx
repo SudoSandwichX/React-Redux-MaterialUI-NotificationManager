@@ -1,12 +1,12 @@
 import React from "react";
-import { withStyles, Snackbar as Snack, IconButton } from "@material-ui/core";
+import { withStyles, Snackbar, IconButton } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 import PropTypes from "prop-types";
 import cx from "classnames";
 
-import snackbarContentStyle from "../Assets/jss/snackbarContentStyle.jsx";
+import notificationContentStyle from "../Assets/jss/notificationContentStyle.jsx";
 
-class Snackbar extends React.Component {
+class Notification extends React.Component {
   closeSnackbar() {
     this.props.closeNotification(this.props.id);
   }
@@ -42,7 +42,7 @@ class Snackbar extends React.Component {
       ];
     }
     return (
-      <Snack
+      <Snackbar
         key={id}
         anchorOrigin={{
           vertical: place.indexOf("t") === -1 ? "bottom" : "top",
@@ -61,7 +61,8 @@ class Snackbar extends React.Component {
           </div>
         }
         action={action}
-        SnackbarContentProps={{
+        classes={{ root: classes.overridePositionFix }}
+        ContentProps={{
           classes: {
             root: classes.root + " " + classes[color],
             message: classes.message
@@ -72,7 +73,7 @@ class Snackbar extends React.Component {
   }
 }
 
-Snackbar.propTypes = {
+Notification.propTypes = {
   classes: PropTypes.object.isRequired,
   message: PropTypes.node.isRequired,
   color: PropTypes.oneOf(["info", "success", "warning", "danger", "primary"]),
@@ -83,4 +84,4 @@ Snackbar.propTypes = {
   closeNotification: PropTypes.func
 };
 
-export default withStyles(snackbarContentStyle)(Snackbar);
+export default withStyles(notificationContentStyle)(Notification);

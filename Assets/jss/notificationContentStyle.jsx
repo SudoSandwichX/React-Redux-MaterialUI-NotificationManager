@@ -11,7 +11,7 @@ import {
   dangerBoxShadow
 } from "./material-dashboard-react.jsx";
 
-const snackbarContentStyle = {
+const notificationContentStyle = {
   root: {
     ...defaultFont,
     position: "relative",
@@ -75,7 +75,10 @@ const snackbarContentStyle = {
   iconMessage: {
     paddingLeft: "65px",
     display: "block"
+  },
+  overridePositionFix: {
+    position: "relative"
   }
 };
 
-export default snackbarContentStyle;
+export default notificationContentStyle;

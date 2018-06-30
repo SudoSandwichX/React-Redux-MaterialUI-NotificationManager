@@ -13,15 +13,28 @@ export default function notificationsReducer(
 ) {
   switch (type) {
     case ADD_NOTIFICATION:
-      // Add to front of array so that notifications stack vertically
-      // In the expected order
+      /* // add to front of array. Causes jittering
       let newArray = state.slice();
       newArray.splice(0, 0, {
         id: payload.notification.id,
         message: payload.notification.message,
-        open: payload.notification.open
+        open: payload.notification.open,
+        color: payload.notification.color,
+        icon: payload.notification.icon
       });
       return newArray;
+*/
+      return update(state, {
+        $push: [
+          {
+            id: payload.notification.id,
+            message: payload.notification.message,
+            open: payload.notification.open,
+            color: payload.notification.color,
+            icon: payload.notification.icon
+          }
+        ]
+      });
 
     case REMOVE_NOTIFICATION:
       const index = state.indexOf(payload.notification);
