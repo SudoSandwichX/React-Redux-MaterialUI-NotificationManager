@@ -3,7 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Button, TextField } from "@material-ui/core";
 
-import NotificationManager from "../Components/NotificationManager.jsx";
+import Notification from "../Components/Notification.jsx";
 
 class Demo extends React.Component {
   constructor(props) {
@@ -51,7 +51,7 @@ class Demo extends React.Component {
         >
           Show Notification
         </Button>
-        <NotificationManager />
+        <Notification />
       </React.Fragment>
     );
   }

@@ -13,16 +13,15 @@ export default function notificationsReducer(
 ) {
   switch (type) {
     case ADD_NOTIFICATION:
-      // Add to front of array so that notifications stack vertically
-      // In the expected order
-      let newArray = state.slice();
-      newArray.splice(0, 0, {
-        id: payload.notification.id,
-        message: payload.notification.message,
-        open: payload.notification.open
+      return update(state, {
+        $push: [
+          {
+            id: payload.notification.id,
+            message: payload.notification.message,
+            open: payload.notification.open
+          }
+        ]
       });
-      return newArray;
-
     case REMOVE_NOTIFICATION:
       const index = state.indexOf(payload.notification);
       // Alt: state.findIndex(obj => obj.id === payload.notification.id)
