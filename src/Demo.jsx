@@ -2,7 +2,7 @@ import { addNotification, removeNotification } from "../Redux";
 import React from "react";
 import { connect } from "react-redux";
 import { Button, TextField } from "@material-ui/core";
-
+import { AddAlert } from "@material-ui/icons";
 import NotificationManager from "../Components/NotificationManager.jsx";
 
 class Demo extends React.Component {
@@ -25,7 +25,9 @@ class Demo extends React.Component {
     this.props.onAddNotification({
       id: Date.now(),
       message: notification.message,
-      open: true
+      open: true,
+      color: "success",
+      icon: AddAlert
     });
   };
   render() {
