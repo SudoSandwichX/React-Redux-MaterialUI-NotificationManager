@@ -29,8 +29,8 @@ class NotificationManager extends React.Component {
               <Snackbar
                 id={notification.id}
                 place="br"
-                color="info"
-                icon={AddAlert}
+                color={notification.color}
+                icon={notification.icon}
                 message={notification.message}
                 open={notification.open}
                 closeNotification={this.closeNotification}
