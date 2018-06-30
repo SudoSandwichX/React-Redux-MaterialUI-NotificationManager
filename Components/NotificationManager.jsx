@@ -1,6 +1,5 @@
 import React from "react";
-import { AddAlert } from "@material-ui/icons";
-import Snackbar from "./Snackbar.jsx";
+import Notification from "./Notification.jsx";
 import { connect } from "react-redux";
 import { addNotification, removeNotification } from "../Redux";
 // this will store the notifications and their count to track them and also maxNotifications for use in internal functions
@@ -26,7 +25,7 @@ class NotificationManager extends React.Component {
         {this.props.notifications.length > 0 &&
           this.props.notifications.map(notification => {
             return (
-              <Snackbar
+              <Notification
                 id={notification.id}
                 place="br"
                 color={notification.color}
