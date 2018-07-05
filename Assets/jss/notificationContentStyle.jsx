@@ -77,7 +77,7 @@ const notificationContentStyle = {
     display: "block"
   },
   overridePositionFix: {
-    "@media screen and (min-width: 64em)": {
+    "@media screen and (min-width: 60em)": {
       position: "relative"
     }
   }
