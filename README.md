@@ -1,5 +1,5 @@
 # React-Redux-MaterialUI-NotificationManager
-I pulled this out of a larger project I'm working on in case it proves useful to someone else. The idea is to keep it simple making it easy to adapt to any use case and update over time.
+I pulled this out of a larger project I'm working on in case it proves useful to someone else. The idea for this project was to create a simple notification system that is easy to adapt to any use case and update over time. I've only included the basics in this build.
 
 <p align="center">
 <img src="/notificationDemo.png" alt="drawing" width="500px"/>
