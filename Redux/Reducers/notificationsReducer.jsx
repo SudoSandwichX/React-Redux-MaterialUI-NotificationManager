@@ -35,12 +35,13 @@ export default function notificationsReducer(
           }
         ]
       });
-
     case REMOVE_NOTIFICATION:
-      const index = state.indexOf(payload.notification);
-      // Alt: state.findIndex(obj => obj.id === payload.notification.id)
+      //const index = state.indexOf(notification);
+      const index = state.findIndex(obj => obj.id === payload.notification);
       if (index >= 0) {
         return update(state, { $splice: [[index, 1]] });
+      } else {
+        return state;
       }
       break;
     default:

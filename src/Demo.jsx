@@ -59,6 +59,7 @@ class Demo extends React.Component {
       color: notification.color,
       icon: notification.icon === "alert" ? AddAlert : Message
     });
+    setTimeout(this.props.onRemoveNotification(notification.id), 1000);
   };
   render() {
     const { classes } = this.props;
