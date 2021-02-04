@@ -49,7 +49,9 @@ class Notification extends React.Component {
           horizontal:
             place.indexOf("l") !== -1
               ? "left"
-              : place.indexOf("c") !== -1 ? "center" : "right"
+              : place.indexOf("c") !== -1
+              ? "center"
+              : "right"
         }}
         open={open}
         message={

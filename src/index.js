@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
 import Demo from "./Demo.jsx";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
@@ -29,4 +29,4 @@ const Root = ({ store }) => (
   </Provider>
 );
 
-ReactDOM.render(<Root store={store} />, document.getElementById("root"));
+render(<Root store={store} />, document.getElementById("root"));

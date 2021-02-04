@@ -2,7 +2,7 @@ import { addNotification, removeNotification } from "../Redux";
 import React from "react";
 import PropTypes from "prop-types";
 import compose from "recompose/compose";
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/styles";
 import { connect } from "react-redux";
 import {
   Button,
@@ -15,7 +15,7 @@ import {
 import { AddAlert, Message } from "@material-ui/icons";
 import NotificationManager from "../Components/NotificationManager.jsx";
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
@@ -23,12 +23,12 @@ const styles = theme => ({
     margin: "auto"
   },
   formControl: {
-    margin: theme.spacing.unit,
+    margin: "10px",
     marginTop: "16px",
     minWidth: "100px"
   },
   selectEmpty: {
-    marginTop: theme.spacing.unit
+    marginTop: "10px"
   },
   textField: {
     minWidth: "200px"
@@ -46,12 +46,12 @@ class Demo extends React.Component {
     icon: "alert"
   };
 
-  handleChange = name => event => {
+  handleChange = (name) => (event) => {
     this.setState({
       [name]: event.target.value
     });
   };
-  showNotification = notification => {
+  showNotification = (notification) => {
     this.props.onAddNotification({
       id: Date.now(),
       message: notification.message,
@@ -59,6 +59,7 @@ class Demo extends React.Component {
       color: notification.color,
       icon: notification.icon === "alert" ? AddAlert : Message
     });
+    setTimeout(this.props.onRemoveNotification(notification.id), 1000);
   };
   render() {
     const { classes } = this.props;
@@ -126,7 +127,7 @@ class Demo extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = (state) => ({});
 
 const mapActionsToProps = {
   onAddNotification: addNotification,

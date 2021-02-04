@@ -11,12 +11,15 @@ class NotificationManager extends React.Component {
   componentDidMount() {}
 
   closeNotification(id) {
-    let notification = this.props.notifications.find(x => x.id === id);
-    this.props.onRemoveNotification(notification);
+    this.props.onRemoveNotification(id);
   }
 
   render() {
-    const { maxNotificationToDisplay } = this.props;
+    const { maxNotificationToDisplay, displayDuration } = this.props;
+
+    // Set default to 30 seconds. TODO implement better notification timeouts
+    let duration = displayDuration ? displayDuration : 30000;
+
     return (
       <React.Fragment>
         {this.props.notifications.length > 0 && (
@@ -35,17 +38,23 @@ class NotificationManager extends React.Component {
               )
               .map(notification => {
                 return (
-                  <Notification
-                    key={notification.id}
-                    id={notification.id}
-                    place="br"
-                    color={notification.color}
-                    icon={notification.icon}
-                    message={notification.message}
-                    open={notification.open}
-                    closeNotification={this.closeNotification}
-                    close
-                  />
+                  <React.Fragment>
+                    {setTimeout(() => {
+                      this.closeNotification(notification.id);
+                    }, duration) && (
+                      <Notification
+                        key={notification.id}
+                        id={notification.id}
+                        place="br"
+                        color={notification.color}
+                        icon={notification.icon}
+                        message={notification.message}
+                        open={notification.open}
+                        closeNotification={this.closeNotification}
+                        close
+                      />
+                    )}
+                  </React.Fragment>
                 );
               })}
           </div>
